@@ -1,3 +1,5 @@
+import { addZero } from './sub.js';
+
 export const videoPlayerInit = () => {
   const videoPlayer = document.querySelector('.video-player');
   const videoButtonPlay = document.querySelector('.video-button__play');
@@ -26,8 +28,6 @@ export const videoPlayerInit = () => {
     videoPlayer.currentTime = 0;
   }
 
-  const addZero = n => n < 10 ? '0' + n : n;
-
   videoPlayer.addEventListener('click', togglePlay);
   videoPlayer.addEventListener('play', toggleIcon);
   videoPlayer.addEventListener('pause', toggleIcon);
@@ -53,8 +53,6 @@ export const videoPlayerInit = () => {
   videoProgress.addEventListener('change', () => {
     const duration = videoPlayer.duration;
     const value = videoProgress.value;
-
-    // console.log(duration, value);
 
     videoPlayer.currentTime = (value * duration) / 100;
   });
