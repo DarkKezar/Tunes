@@ -3,8 +3,6 @@ import { allOff } from './sub.js';
 export const audio = new Audio();
 audio.type = 'audio/aac';
 
-
-
 export const radioPlayerInit = () => {
   const radio = document.querySelector('.radio');
   const radioCoverImg = document.querySelector('.radio-cover__img');
