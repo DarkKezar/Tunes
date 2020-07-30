@@ -1,3 +1,5 @@
+import { addZero } from './sub.js';
+
 export const videoPlayerInit = () => {
   const videoPlayer = document.querySelector('.video-player');
   const videoButtonPlay = document.querySelector('.video-button__play');
