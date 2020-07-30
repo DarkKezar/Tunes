@@ -1,3 +1,10 @@
+import { allOff } from './sub.js';
+
+export const audio = new Audio();
+audio.type = 'audio/aac';
+
+
+
 export const radioPlayerInit = () => {
   const radio = document.querySelector('.radio');
   const radioCoverImg = document.querySelector('.radio-cover__img');
@@ -5,9 +12,6 @@ export const radioPlayerInit = () => {
   const radioNavigation = document.querySelector('.radio-navigation');
   const radioItem = document.querySelectorAll('.radio-item');
   const radioStop = document.querySelector('.radio-stop');
-
-  const audio = new Audio();
-  audio.type = 'audio/aac';
 
   radioStop.disabled = true;
 
@@ -39,6 +43,7 @@ export const radioPlayerInit = () => {
     radioCoverImg.src = urlImg;
 
     audio.src = target.dataset.radioStantion;
+    allOff();
     audio.play();
 
     radioStop.disabled = false;
@@ -47,7 +52,8 @@ export const radioPlayerInit = () => {
 
   radioStop.addEventListener('click', () => {
     if (audio.paused) {
-      audio.play()
+      allOff();
+      audio.play();
     } else {
       audio.pause();
     }

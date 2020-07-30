@@ -1,4 +1,4 @@
-import { addZero } from './sub.js';
+import { addZero, allOff } from './sub.js';
 
 export const musicPlayerInit = () => {
   const audio = document.querySelector('.audio');
@@ -25,7 +25,10 @@ export const musicPlayerInit = () => {
     audioHeader.textContent = track.toUpperCase();
 
     if (isPlayed) audioPlayer.pause();
-    else audioPlayer.play();
+    else{
+      allOff();
+      audioPlayer.play();
+    }
   }
 
   const prevTrack = () => {
@@ -49,8 +52,10 @@ export const musicPlayerInit = () => {
       audioButtonPlay.classList.toggle('fa-pause');
       // .classList.toggle - переделать предыдущие if'ы
 
-      if(audioPlayer.paused) audioPlayer.play();
-      else audioPlayer.pause();
+      if(audioPlayer.paused){
+          allOff();
+          audioPlayer.play();
+      }else audioPlayer.pause();
 
       audioHeader.textContent = playlist[trackIndex].toUpperCase();
     }

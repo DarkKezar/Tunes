@@ -1,4 +1,4 @@
-import { addZero } from './sub.js';
+import { addZero, allOff } from './sub.js';
 
 export const videoPlayerInit = () => {
   const videoPlayer = document.querySelector('.video-player');
@@ -19,8 +19,10 @@ export const videoPlayerInit = () => {
   }
 
   const togglePlay = () => {
-    if(videoPlayer.paused) videoPlayer.play();
-    else videoPlayer.pause();
+    if(videoPlayer.paused){
+      allOff();
+      videoPlayer.play();
+    }else videoPlayer.pause();
   }
 
   const stopPlay = () => {
